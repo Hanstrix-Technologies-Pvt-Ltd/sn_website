@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,7 +63,12 @@ export function Navigation() {
             whileTap={{ scale: 0.95 }}
           >
             <Link href="/" className="font-serif tracking-tight">
-              Stock Navii
+              <Image
+                src={theme === "dark" ? "/logo-light.png" : "/logo.png"}
+                alt="Logo"
+                width={150}
+                height={150}
+              />
             </Link>
           </motion.div>
 
@@ -133,7 +139,7 @@ export function Navigation() {
               className="hidden lg:block"
             >
               <Button className=" bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                Join Community
+                Login
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </motion.div>
