@@ -84,7 +84,7 @@ export default function HomePage() {
       <WhyChooseUsSection />
 
       {/* Client Logos */}
-      <ClientLogosSection />
+      {/* <ClientLogosSection /> */}
 
       {/* Testimonials */}
       <TestimonialsSection />
@@ -204,28 +204,28 @@ function HeroSection() {
         />
       </div>
 
-      <div className="container mx-auto text-center relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-6xl mx-auto"
-        >
-          <div className="mb-8">
-            <Badge
-              variant="secondary"
-              className="mb-6 px-6 py-2 text-sm font-medium bg-white/10 dark:bg-slate-800/50 backdrop-blur-sm border border-white/20 dark:border-slate-700/20 text-blue-600 dark:text-blue-400"
-            >
-              ✨ Navigate Your Financial Future Since 2020
-            </Badge>
-          </div>
+      <div className="container mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+          {/* Left Column - Text Content */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col justify-center"
+          >
+            {/* <div className="mb-8">
+              <Badge
+                variant="secondary"
+                className="mb-6 px-6 py-2 text-sm font-medium bg-white/10 dark:bg-slate-800/50 backdrop-blur-sm border border-white/20 dark:border-slate-700/20 text-blue-600 dark:text-blue-400"
+              >
+                ✨ Navigate Your Financial Future Since 2020
+              </Badge>
+            </div> */}
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent animate-pulse">
-            <span className="font-serif tracking-tight block">
-              {glitchText.split(" ").map((word, index) => (
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent animate-pulse text-left">
+              <span className="font-serif tracking-tight block">
                 <motion.span
-                  key={index}
-                  className="inline-block mr-4 md:mr-6 "
+                  className="block"
                   whileHover={{
                     scale: 1.05,
                     textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
@@ -238,77 +238,149 @@ function HeroSection() {
                   }}
                   transition={{ duration: 0.1 }}
                 >
-                  {word}
+                  YOUR
                 </motion.span>
-              ))}
-            </span>
-          </h1>
-
-          <p className="text-xl md:text-3xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed max-w-4xl mx-auto font-light">
-            Unlocking Your Path to{" "}
-            <span className="font-semibold bg-blue-600 bg-clip-text text-transparent">
-              Financial Independence
-            </span>
-            : By Empowering You with Knowledge and Strategies to Achieve
-            Financial Independence in Stock Market Trading
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                size="lg"
-                className="group relative px-12 py-6 text-lg font-semibold bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 rounded-2xl overflow-hidden"
-              >
-                <span className="relative z-10 flex items-center">
-                  Join The Stock Navii Community
-                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-                <div className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </Button>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Button
-                size="lg"
-                variant="outline"
-                className="group px-12 py-6 text-lg font-semibold border-2 border-blue-600/30 dark:border-blue-400/30 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 rounded-2xl backdrop-blur-sm bg-white/10 dark:bg-slate-800/20"
-              >
-                Unlock Trading Secrets
-                <motion.div
-                  className="ml-3 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.5 }}
+                <motion.span
+                  className="block"
+                  whileHover={{
+                    scale: 1.05,
+                    textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
+                  }}
+                  animate={{
+                    opacity:
+                      glitchText !== "YOUR STOCK MARKET NAVIGATOR"
+                        ? [1, 0.8, 1]
+                        : 1,
+                  }}
+                  transition={{ duration: 0.1 }}
                 >
-                  <ArrowRight className="h-3 w-3 text-white" />
-                </motion.div>
-              </Button>
-            </motion.div>
-          </div>
+                  STOCK MARKET NAVIGATOR
+                </motion.span>
+              </span>
+            </h1>
 
-          {/* Scroll Indicator */}
-          <div className="mt-20 flex flex-col items-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">
-              Scroll to explore
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed font-light text-left">
+              Unlocking Your Path to{" "}
+              <span className="font-semibold bg-blue-600 bg-clip-text text-transparent">
+                Financial Independence
+              </span>
+              : By Empowering You with Knowledge and Strategies to Achieve
+              Financial Independence in Stock Market Trading
             </p>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-full flex justify-center"
-            >
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-start items-start">
               <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-3 bg-blue-600 rounded-full mt-2"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="lg"
+                  className="group relative px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 rounded-2xl overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center">
+                    Join The Stock Navii Community
+                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
+                  <div className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </Button>
+              </motion.div>
+              {/* 
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group px-8 py-4 text-base font-semibold border-2 border-blue-600/30 dark:border-blue-400/30 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 rounded-2xl backdrop-blur-sm bg-white/10 dark:bg-slate-800/20"
+                >
+                  Unlock Trading Secrets
+                  <motion.div
+                    className="ml-3 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center"
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <ArrowRight className="h-3 w-3 text-white" />
+                  </motion.div>
+                </Button>
+              </motion.div> */}
+            </div>
+          </motion.div>
+
+          {/* Right Column - Hero Banner Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative flex justify-center items-center"
+          >
+            <div className="relative w-full max-w-2xl">
+              {/* Glow Effect */}
+              <div className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-2xl scale-110" />
+
+              {/* Hero Banner Image */}
+              <motion.div
+                whileHover={{ scale: 1.05, rotateY: 5 }}
+                transition={{ duration: 0.3 }}
+                className="relative"
+              >
+                <Image
+                  src="/stocknavii-website-hero-banner-2.png"
+                  alt="Stock Navii Hero Banner"
+                  width={600}
+                  height={500}
+                  className="w-full h-auto object-contain relative z-10 drop-shadow-2xl"
+                  priority
+                />
+              </motion.div>
+
+              {/* Floating Elements */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-8 h-8 bg-blue-400 rounded-full opacity-60"
+                animate={{
+                  y: [0, -10, 0],
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
-            </motion.div>
-          </div>
-        </motion.div>
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-6 h-6 bg-blue-500 rounded-full opacity-40"
+                animate={{
+                  y: [0, 10, 0],
+                  scale: [1, 0.9, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Scroll Indicator - Centered below grid */}
+        <div className="mt-16 flex flex-col items-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 font-medium">
+            Scroll to explore
+          </p>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-full flex justify-center"
+          >
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-3 bg-blue-600 rounded-full mt-2"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -386,7 +458,7 @@ function AboutSection() {
               viewport={{ once: true }}
             >
               {[
-                { label: "10+ Years Trading Experience", icon: "🏆" },
+                { label: "13+ YearsTrading Experience", icon: "🏆" },
                 { label: "1000+ Successful Traders", icon: "🚀" },
                 { label: "95% Success Rate", icon: "❤️" },
               ].map((item, index) => (
@@ -644,7 +716,7 @@ function ServicesBentoGrid() {
                         </div>
                       </div>
 
-                      <motion.div className="mt-auto" whileHover={{ x: 5 }}>
+                      {/* <motion.div className="mt-auto" whileHover={{ x: 5 }}>
                         <Button
                           size="lg"
                           className={`group bg-gradient-to-r ${service.gradient} hover:shadow-lg hover:shadow-blue-500/25 text-white border-0 transition-all duration-300 rounded-xl px-8 py-3`}
@@ -652,7 +724,7 @@ function ServicesBentoGrid() {
                           Learn More
                           <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                         </Button>
-                      </motion.div>
+                      </motion.div> */}
 
                       {/* Decorative Elements */}
                       <div className="absolute top-6 right-6 w-3 h-3 bg-blue-400 rounded-full opacity-60 group-hover:scale-150 transition-transform duration-300" />
@@ -740,7 +812,7 @@ function WhyChooseUsSection() {
     {
       icon: <TrendingUp className="h-8 w-8" />,
       title: "Proven Track Record",
-      description: "10+ years of successful trading with documented results",
+      description: "13+ Yearsof successful trading with documented results",
       color: "from-blue-500 to-blue-600",
     },
     {
@@ -864,14 +936,14 @@ function WhyChooseUsSection() {
         </div>
 
         {/* Scroll Indicators */}
-        <div className="flex justify-center mt-8 space-x-2">
+        {/* <div className="flex justify-center mt-8 space-x-2">
           {features.map((_, index) => (
             <div
               key={index}
               className="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-600 opacity-50"
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -1109,24 +1181,24 @@ function Footer() {
         { name: "Community Access", href: "/community" },
       ],
     },
-    {
-      title: "Company",
-      links: [
-        { name: "About Stock Navii", href: "/about" },
-        { name: "Success Stories", href: "/success-stories" },
-        { name: "Trading Blog", href: "/blog" },
-        { name: "Contact", href: "/contact" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { name: "Trading Education", href: "/education" },
-        { name: "Market Research", href: "/research" },
-        { name: "24/7 Support", href: "/support" },
-        { name: "Privacy Policy", href: "/privacy" },
-      ],
-    },
+    // {
+    //   title: "Company",
+    //   links: [
+    //     { name: "About Stock Navii", href: "/about" },
+    //     { name: "Success Stories", href: "/success-stories" },
+    //     { name: "Trading Blog", href: "/blog" },
+    //     { name: "Contact", href: "/contact" },
+    //   ],
+    // },
+    // {
+    //   title: "Resources",
+    //   links: [
+    //     { name: "Trading Education", href: "/education" },
+    //     { name: "Market Research", href: "/research" },
+    //     { name: "24/7 Support", href: "/support" },
+    //     { name: "Privacy Policy", href: "/privacy" },
+    //   ],
+    // },
   ];
 
   const socialLinks = [
@@ -1205,15 +1277,12 @@ function Footer() {
                       }}
                       viewport={{ once: true }}
                     >
-                      <Link
-                        href={link.href}
-                        className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block group"
-                      >
+                      <p className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block group">
                         <span className="relative">
                           {link.name}
                           <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300" />
                         </span>
-                      </Link>
+                      </p>
                     </motion.li>
                   ))}
                 </ul>
@@ -1250,7 +1319,7 @@ function Footer() {
               Support: WhatsApp Available
             </p>
           </div>
-          <div className="text-center md:text-left">
+          {/* <div className="text-center md:text-left">
             <h5 className="font-semibold mb-2 text-blue-400">Trading Hours</h5>
             <p className="text-gray-300">
               Mon - Fri: 9:15 AM - 3:30 PM IST
@@ -1259,7 +1328,7 @@ function Footer() {
               <br />
               Post-Market: 3:30 PM - 4:00 PM
             </p>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Bottom Bar */}

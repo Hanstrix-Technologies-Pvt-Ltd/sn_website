@@ -71,7 +71,7 @@ export default function AboutPage() {
 
               <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
-                  With 10+ years of Stock market journey, results have shown up
+                  With 13+ Yearsof Stock market journey, results have shown up
                   once my life transformed personally in every area. So I always
                   believe to change your life, 'you need to change first'.
                 </p>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                 icon: <Target className="h-8 w-8" />,
                 title: "Proven Results",
                 description:
-                  "10+ years of market experience with documented results and a track record of helping students succeed.",
+                  "13+ Yearsof market experience with documented results and a track record of helping students succeed.",
               },
             ].map((value, index) => (
               <motion.div
