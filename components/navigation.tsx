@@ -7,11 +7,16 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import AccountPopup from "@/components/login/AccountPopup";
+import { useUser } from "@clerk/nextjs";
+import { IconUser } from "@tabler/icons-react";
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isAccountPopupOpen, setIsAccountPopupOpen] = useState(false);
+  const { user: clerkUser, isSignedIn } = useUser();
 
   useEffect(() => {
     setMounted(true);
@@ -44,6 +49,7 @@ export function Navigation() {
   if (!mounted) return null;
 
   return (
+    <>
     <motion.nav
       className={`fixed top-4 left-4 right-4 z-50 transition-all duration-500 rounded-2xl ${
         isScrolled
@@ -138,10 +144,17 @@ export function Navigation() {
               whileTap={{ scale: 0.95 }}
               className="hidden lg:block"
             >
-              <Button className=" bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                Login
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              {isSignedIn && clerkUser ? (
+                <Button onClick={() => setIsAccountPopupOpen(true)} className="bg-white/10 dark:bg-slate-800/50 text-gray-800 dark:text-gray-200 border border-white/20 dark:border-slate-700/20 hover:bg-white/20 dark:hover:bg-slate-700/50">
+                  {clerkUser.unsafeMetadata?.firstName as string || `${clerkUser.firstName ?? ''} ${clerkUser.lastName ?? ''}`.trim() || clerkUser.emailAddresses?.[0]?.emailAddress || 'Account'}
+                  <IconUser className="ml-2 h-4 w-4" />
+                </Button>
+              ) : (
+                <Button onClick={() => setIsAccountPopupOpen(true)} className=" bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                  Login
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              )}
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -221,5 +234,7 @@ export function Navigation() {
         </AnimatePresence>
       </div>
     </motion.nav>
+    <AccountPopup open={isAccountPopupOpen} onClose={() => setIsAccountPopupOpen(false)} />
+    </>
   );
 }
