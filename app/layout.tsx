@@ -1,19 +1,21 @@
-import type { Metadata } from "next"
-import { Inter, Playfair_Display } from 'next/font/google'
-import { ThemeProvider } from "@/components/theme-provider"
-import "./globals.css"
+// app/layout.tsx
 
-const inter = Inter({ 
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from 'next/font/google';
+import "./globals.css";
+import Providers from "@/app/providers";
+
+const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter',
   display: 'swap'
-})
+});
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: '--font-playfair',
   display: 'swap'
-})
+});
 
 export const metadata: Metadata = {
   title: "Hanstrix Technologies - Digital Transformation Agency",
@@ -68,13 +70,13 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code',
   },
-    generator: 'v0.dev'
-}
+  generator: 'v0.dev'
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -156,15 +158,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
-  )
+  );
 }
