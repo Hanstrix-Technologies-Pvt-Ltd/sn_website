@@ -147,8 +147,8 @@ export default function SignUpForm({
         />
       </Typography>
 
-      <Box component="form" onSubmit={handleSubmit}>
-        <Stack spacing={2}>
+      <Box component="form" onSubmit={handleSubmit} sx={{ width: "100%" }}>
+        <Stack spacing={{ xs: 1.5, sm: 2 }}>
           {errorMessage && (
             <Alert
               severity={errorIsInfo ? "info" : "error"}
@@ -171,7 +171,7 @@ export default function SignUpForm({
             sx={{
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
-              gap: 2,
+              gap: { xs: 1.5, sm: 2 },
             }}
           >
             <TextField
@@ -322,7 +322,7 @@ export default function SignUpForm({
             sx={{
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
-              gap: 2,
+              gap: { xs: 1.5, sm: 2 },
             }}
           >
             <TextField

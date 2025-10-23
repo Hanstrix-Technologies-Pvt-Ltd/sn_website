@@ -2,35 +2,21 @@
 
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Navigation } from "@/components/navigation";
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-lg">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent"
-            >
-              Stock Navii
-            </Link>
-            <Button asChild variant="outline">
-              <Link href="/">Back to Home</Link>
-            </Button>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-20 px-4 sm:px-6">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -38,10 +24,10 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               Get In Touch
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed px-4">
               Ready to transform your trading journey? Let's discuss your goals
               and explore how Stock Navii can help you achieve financial
               independence.
@@ -51,9 +37,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-4 sm:px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -62,12 +48,12 @@ export default function ContactPage() {
               viewport={{ once: true }}
             >
               <Card className="bg-white border-0 shadow-xl">
-                <CardContent className="p-8">
-                  <h2 className="text-3xl font-bold mb-6 text-gray-900">
+                <CardContent className="p-6 sm:p-8">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">
                     Send us a Message
                   </h2>
                   <form className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <Label
                           htmlFor="name"
@@ -137,7 +123,7 @@ export default function ContactPage() {
                     </div>
                     <Button
                       size="lg"
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600"
+                      className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-base sm:text-lg"
                     >
                       Send Message
                       <Send className="ml-2 h-5 w-5" />
@@ -153,32 +139,32 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-gray-900">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900">
                   Contact Information
                 </h2>
-                <p className="text-lg text-gray-600 mb-8">
+                <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
                   We're here to help you navigate your stock market journey with
                   expert guidance and personalized coaching. Reach out to us
                   through any of the following channels.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <motion.div
-                  className="flex items-start space-x-4"
+                  className="flex items-start space-x-3 sm:space-x-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white">
-                    <MapPin className="h-6 w-6" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white flex-shrink-0">
+                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                       Address
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600">
                       Raja Rajeshwari Nagar
                       <br />
                       Bengaluru - 560068
@@ -189,17 +175,17 @@ export default function ContactPage() {
                 </motion.div>
 
                 <motion.div
-                  className="flex items-start space-x-4"
+                  className="flex items-start space-x-3 sm:space-x-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white">
-                    <Phone className="h-6 w-6" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white flex-shrink-0">
+                    <Phone className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                       Phone
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600">
                       +91 97014 61661
                       <br />
                       Available for consultations
@@ -208,17 +194,17 @@ export default function ContactPage() {
                 </motion.div>
 
                 <motion.div
-                  className="flex items-start space-x-4"
+                  className="flex items-start space-x-3 sm:space-x-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white">
-                    <Mail className="h-6 w-6" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white flex-shrink-0">
+                    <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
                       Email
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600">
                       info@stocknavii.com
                       <br />
                       For general inquiries and coaching
@@ -253,7 +239,7 @@ export default function ContactPage() {
       </section>
 
       {/* Business Hours */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-4 sm:px-6 bg-white">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -261,10 +247,10 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-8 text-gray-900">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900">
               Consultation Hours
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
               <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0">
                 <CardContent className="p-6 text-center">
                   <h3 className="font-semibold text-gray-900 mb-2">

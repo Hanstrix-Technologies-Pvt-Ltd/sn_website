@@ -74,6 +74,8 @@ export function Navigation() {
                 alt="Logo"
                 width={150}
                 height={150}
+                className="w-24 h-auto sm:w-32 md:w-40"
+                priority
               />
             </Link>
           </motion.div>
@@ -225,9 +227,47 @@ export function Navigation() {
                   </Link>
                 </motion.div>
 
-                <Button className="mt-4 bg-blue-600 hover:bg-blue-700 text-white">
-                  Join Community
-                </Button>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 3 * 0.1 }}
+                  className="pt-2"
+                >
+                  {isSignedIn && clerkUser ? (
+                    <Button 
+                      onClick={() => {
+                        setIsAccountPopupOpen(true);
+                        setIsMenuOpen(false);
+                      }} 
+                      className="w-full bg-white/10 dark:bg-slate-800/50 text-gray-800 dark:text-gray-200 border border-white/20 dark:border-slate-700/20 hover:bg-white/20 dark:hover:bg-slate-700/50"
+                    >
+                      {clerkUser.unsafeMetadata?.firstName as string || `${clerkUser.firstName ?? ''} ${clerkUser.lastName ?? ''}`.trim() || clerkUser.emailAddresses?.[0]?.emailAddress || 'Account'}
+                      <IconUser className="ml-2 h-4 w-4" />
+                    </Button>
+                  ) : (
+                    <Button 
+                      onClick={() => {
+                        setIsAccountPopupOpen(true);
+                        setIsMenuOpen(false);
+                      }} 
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                    >
+                      Login
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 4 * 0.1 }}
+                  className="pt-2"
+                >
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    Join Community
+                  </Button>
+                </motion.div>
               </div>
             </motion.div>
           )}

@@ -23,12 +23,14 @@ export const getPopupPaperStyles = (isOTP: boolean = false) => ({
   background: POPUP_COLORS.background,
   backdropFilter: "blur(20px)",
   border: "1px solid rgba(255, 255, 255, 0.2)",
-  overflow: "hidden",
+  overflow: "auto", // Allow scrolling
   position: "relative" as const,
   minHeight: "20px",
-  maxHeight: isOTP ? { xs: "90vh", sm: "85vh" } : { xs: "100vh", sm: "90vh", md: "80vh" },
+  maxHeight: isOTP ? { xs: "90vh", sm: "85vh" } : { xs: "90vh", sm: "85vh", md: "80vh" },
   maxWidth: { xs: "95vw", sm: "450px" },
   width: { xs: "95vw", sm: "450px", md: "600px" },
+  display: "flex",
+  flexDirection: "column",
   "&::before": {
     content: '""',
     position: "absolute" as const,
@@ -53,7 +55,8 @@ export const getDialogContentStyles = () => ({
   p: 0,
   position: "relative" as const,
   zIndex: 2,
-  overflow: "hidden", // Hide scrollbar
+  overflow: "auto", // Allow scrolling on mobile
+  maxHeight: "100%", // Ensure it respects parent height
   "&::-webkit-scrollbar": {
     display: "none", // Hide scrollbar for webkit browsers
   },
@@ -107,8 +110,10 @@ export const getCloseButtonStyles = () => ({
 
 // Common content box styles
 export const getContentBoxStyles = () => ({
-  p: 3,
-  pt: 2,
+  p: { xs: 2, sm: 3 }, // Responsive padding
+  pt: { xs: 1, sm: 2 }, // Responsive top padding
+  overflow: "auto", // Allow scrolling
+  maxHeight: "100%", // Respect parent container
 });
 
 // Common title styles

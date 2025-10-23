@@ -222,7 +222,7 @@ function HeroSection() {
               </Badge>
             </div> */}
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent animate-pulse text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent animate-pulse text-left">
               <span className="font-serif tracking-tight block">
                 <motion.span
                   className="block"
@@ -259,7 +259,7 @@ function HeroSection() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-12 leading-relaxed font-light text-left">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 leading-relaxed font-light text-left">
               Unlocking Your Path to{" "}
               <span className="font-semibold bg-blue-600 bg-clip-text text-transparent">
                 Financial Independence
@@ -426,7 +426,7 @@ function AboutSection() {
               </Badge>
             </motion.div>
 
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-gray-900 dark:text-white font-serif leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 text-gray-900 dark:text-white font-serif leading-tight">
               Navigating Your{" "}
               <span className="bg-blue-600 bg-clip-text text-transparent">
                 Financial Future
@@ -515,7 +515,7 @@ function AboutSection() {
                     <Lightbulb className="h-10 w-10" />
                   </motion.div>
 
-                  <h3 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white font-serif">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white font-serif">
                     Our Mission
                   </h3>
                   <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -626,7 +626,7 @@ function ServicesBentoGrid() {
           >
             The 3 Secrets to Stock Market Success
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white font-serif leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white font-serif leading-tight px-4">
             Unlock{" "}
             <span className="bg-blue-600 bg-clip-text text-transparent">
               Trading Success
@@ -869,7 +869,7 @@ function WhyChooseUsSection() {
           >
             Why Choose Us
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white font-serif leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white font-serif leading-tight px-4">
             What Sets Us{" "}
             <span className="bg-blue-600 bg-clip-text text-transparent">
               Apart
@@ -1081,7 +1081,7 @@ function TestimonialsSection() {
           >
             Client Testimonials
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white font-serif leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 dark:text-white font-serif leading-tight px-4">
             What Our{" "}
             <span className="bg-blue-600 bg-clip-text text-transparent">
               Clients Say
@@ -1224,7 +1224,7 @@ function Footer() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-3xl font-bold mb-6 bg-blue-400 bg-clip-text text-transparent font-serif">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 bg-blue-400 bg-clip-text text-transparent font-serif">
                 Stock Navii
               </h3>
               <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
