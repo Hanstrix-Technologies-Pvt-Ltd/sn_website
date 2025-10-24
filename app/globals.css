@@ -1,0 +1,307 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 214 100% 40%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 214 40% 96%;
+  --secondary-foreground: 222.2 84% 4.9%;
+  --muted: 214 40% 96%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 214 40% 96%;
+  --accent-foreground: 222.2 84% 4.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214 31.8% 91.4%;
+  --input: 214 31.8% 91.4%;
+  --ring: 214 100% 40%;
+  --radius: 0.75rem;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 214 100% 90%;
+  --primary-foreground: 214 100% 20%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 214 100% 70%;
+  --chart-1: 214 100% 50%;
+  --chart-2: 214 80% 40%;
+  --chart-3: 214 60% 30%;
+  --chart-4: 214 40% 60%;
+  --chart-5: 214 20% 70%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Typography System */
+.font-serif {
+  font-family: var(--font-playfair), serif;
+}
+
+.font-sans {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Custom scrollbar styles */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes glitch {
+
+  0%,
+  100% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* Gradient text animation */
+@keyframes gradient {
+
+  0%,
+  100% {
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-size: 400% 400%;
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Liquid Glass Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Refractive light effects */
+@keyframes refract {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.refract {
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  background-size: 200% 200%;
+  animation: refract 3s ease-in-out infinite;
+}
+
+/* Advanced hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Cursor effects */
+.cursor-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 82, 204, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cursor-glow:hover::before {
+  opacity: 1;
+}
+
+/* Performance optimizations */
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus-visible {
+  outline: 2px solid #0052cc;
+  outline-offset: 2px;
+}
+
+/* Custom selection colors */
+::selection {
+  background: rgba(0, 82, 204, 0.2);
+  color: inherit;
+}
+
+.dark ::selection {
+  background: rgba(0, 82, 204, 0.4);
+}
+
+/* Loading states */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(0, 82, 204, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(0, 82, 204, 0.8), 0 0 30px rgba(0, 82, 204, 0.4);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Text effects */
+.text-shadow-glow {
+  text-shadow: 0 0 20px rgba(0, 82, 204, 0.5);
+}
+
+/* Backdrop blur fallback */
+@supports not (backdrop-filter: blur(20px)) {
+  .glass {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.9);
+  }
+}
