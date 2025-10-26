@@ -8,10 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950/30">
       {/* Navigation */}
       <Navigation />
 
@@ -27,7 +28,7 @@ export default function ContactPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">
               Get In Touch
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed px-4">
               Ready to transform your trading journey? Let's discuss your goals
               and explore how Stock Navii can help you achieve financial
               independence.
@@ -47,9 +48,9 @@ export default function ContactPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-white border-0 shadow-xl">
+              <Card className="bg-white dark:bg-slate-800 border-0 shadow-xl">
                 <CardContent className="p-6 sm:p-8">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
                     Send us a Message
                   </h2>
                   <form className="space-y-6">
@@ -57,7 +58,7 @@ export default function ContactPage() {
                       <div>
                         <Label
                           htmlFor="name"
-                          className="text-gray-700 font-medium"
+                          className="text-gray-700 dark:text-gray-300 font-medium"
                         >
                           Name
                         </Label>
@@ -70,7 +71,7 @@ export default function ContactPage() {
                       <div>
                         <Label
                           htmlFor="email"
-                          className="text-gray-700 font-medium"
+                          className="text-gray-700 dark:text-gray-300 font-medium"
                         >
                           Email
                         </Label>
@@ -85,7 +86,7 @@ export default function ContactPage() {
                     <div>
                       <Label
                         htmlFor="company"
-                        className="text-gray-700 font-medium"
+                        className="text-gray-700 dark:text-gray-300 font-medium"
                       >
                         Company
                       </Label>
@@ -98,7 +99,7 @@ export default function ContactPage() {
                     <div>
                       <Label
                         htmlFor="subject"
-                        className="text-gray-700 font-medium"
+                        className="text-gray-700 dark:text-gray-300 font-medium"
                       >
                         Subject
                       </Label>
@@ -111,7 +112,7 @@ export default function ContactPage() {
                     <div>
                       <Label
                         htmlFor="message"
-                        className="text-gray-700 font-medium"
+                        className="text-gray-700 dark:text-gray-300 font-medium"
                       >
                         Message
                       </Label>
@@ -142,10 +143,10 @@ export default function ContactPage() {
               className="space-y-6 sm:space-y-8"
             >
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-gray-900 dark:text-white">
                   Contact Information
                 </h2>
-                <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-6 sm:mb-8">
                   We're here to help you navigate your stock market journey with
                   expert guidance and personalized coaching. Reach out to us
                   through any of the following channels.
@@ -161,10 +162,10 @@ export default function ContactPage() {
                     <MapPin className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       Address
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                       Raja Rajeshwari Nagar
                       <br />
                       Bengaluru - 560068
@@ -182,10 +183,10 @@ export default function ContactPage() {
                     <Phone className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       Phone
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                       +91 97014 61661
                       <br />
                       Available for consultations
@@ -201,10 +202,10 @@ export default function ContactPage() {
                     <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       Email
                     </h3>
-                    <p className="text-sm sm:text-base text-gray-600">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
                       info@stocknavii.com
                       <br />
                       For general inquiries and coaching
@@ -213,25 +214,28 @@ export default function ContactPage() {
                 </motion.div>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Location Info */}
               <motion.div
-                className="mt-8"
+                className="flex items-start space-x-3 sm:space-x-4"
+                whileHover={{ scale: 1.05 }}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="overflow-hidden border-0 shadow-lg">
-                  <div className="h-64 bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 mx-auto mb-4" />
-                      <p className="text-lg font-semibold">
-                        Find Us in Bengaluru
-                      </p>
-                      <p className="text-blue-100">Raja Rajeshwari Nagar</p>
-                    </div>
-                  </div>
-                </Card>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-500 flex items-center justify-center text-white flex-shrink-0">
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6" />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    Find Us in Bengaluru
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+                    Raja Rajeshwari Nagar
+                    <br />
+                    Bengaluru - 560068, Karnataka
+                  </p>
+                </div>
               </motion.div>
             </motion.div>
           </div>
@@ -239,7 +243,7 @@ export default function ContactPage() {
       </section>
 
       {/* Business Hours */}
-      <section className="py-16 px-4 sm:px-6 bg-white">
+      <section className="py-16 px-4 sm:px-6 bg-white dark:bg-slate-800">
         <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -247,42 +251,45 @@ export default function ContactPage() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-gray-900 dark:text-white">
               Consultation Hours
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
-              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Monday - Friday
                   </h3>
-                  <p className="text-gray-600">9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-600 dark:text-gray-300">9:00 AM - 6:00 PM</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-gray-900 mb-2">Saturday</h3>
-                  <p className="text-gray-600">10:00 AM - 4:00 PM</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Saturday</h3>
+                  <p className="text-gray-600 dark:text-gray-300">10:00 AM - 4:00 PM</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-gray-900 mb-2">Sunday</h3>
-                  <p className="text-gray-600">By Appointment</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Sunday</h3>
+                  <p className="text-gray-600 dark:text-gray-300">By Appointment</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-0">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Emergency
                   </h3>
-                  <p className="text-gray-600">WhatsApp Support</p>
+                  <p className="text-gray-600 dark:text-gray-300">WhatsApp Support</p>
                 </CardContent>
               </Card>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

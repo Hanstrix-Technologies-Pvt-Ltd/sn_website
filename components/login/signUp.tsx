@@ -26,6 +26,9 @@ import {
   getSubtitleStyles,
   getEmailInputStyles,
   getPrimaryButtonStyles,
+  getTextStyles,
+  getLinkStyles,
+  getIconStyles,
 } from "./constant";
 
 interface SignUpFormProps {
@@ -154,9 +157,9 @@ export default function SignUpForm({
               severity={errorIsInfo ? "info" : "error"}
               sx={{
                 mb: 2,
-                backgroundColor: "#0288d1",
+                backgroundColor: "#2563eb", // Updated to match dashboard blue
                 color: "#FFFFFF",
-                border: "1px solid rgba(17,82,147,0.16)",
+                border: "1px solid rgba(37, 99, 235, 0.2)", // Updated border color
                 borderRadius: 3,
                 alignItems: "center",
                 "& .MuiAlert-icon": { color: "#f44336" },
@@ -289,7 +292,7 @@ export default function SignUpForm({
                     onClick={() => setShowPassword(!showPassword)}
                     onMouseDown={(e) => e.preventDefault()} // Prevent focus loss
                     edge="end"
-                    sx={{ color: "#115293" }}
+                    sx={getIconStyles()} // Dark mode-aware icon styling
                     tabIndex={-1} // Prevent tab focus on icon button
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -344,12 +347,19 @@ export default function SignUpForm({
               sx={{
                 ...getEnhancedInputStyles(getEmailInputStyles(theme)),
                 "& .MuiSelect-select": {
-                  backgroundColor: "#E9F3FD !important",
-                  color: theme.palette.text.primary,
+                  backgroundColor: "#FFFFFF !important", // Clean white for light theme
+                  color: "#2563eb", // Vibrant blue text
                   cursor: "pointer",
+                  ".dark &": {
+                    backgroundColor: "#0f172a !important", // slate-950 - matches homepage dark theme
+                    color: "#f8fafc !important", // slate-50 - proper light text for dark theme
+                  },
                 },
                 "& .MuiSvgIcon-root": {
-                  color: "#1976D2 !important",
+                  color: "#2563eb !important", // Vibrant blue dropdown arrow
+                  ".dark &": {
+                    color: "#f8fafc !important", // slate-50 - proper light text for dark theme
+                  },
                 },
               }}
               SelectProps={{
@@ -442,7 +452,7 @@ export default function SignUpForm({
 
           {/* Switch to Sign In */}
           <Box sx={{ textAlign: "center", mt: 2 }}>
-            <Typography variant="body2" sx={{ color: "#115293" }}>
+            <Typography variant="body2" sx={getTextStyles()}>
               <FormattedMessage
                 id="signup.have.account"
                 defaultMessage="Already have an account?"
@@ -450,17 +460,7 @@ export default function SignUpForm({
               <Button
                 onClick={onSwitchToSignIn}
                 tabIndex={isLoading ? -1 : 0}
-                sx={{
-                  color: "#115293",
-                  textTransform: "none",
-                  fontWeight: 600,
-                  p: 0,
-                  minWidth: "auto",
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    textDecoration: "underline",
-                  },
-                }}
+                sx={getLinkStyles()}
               >
                 <FormattedMessage
                   id="signup.signin.link"
