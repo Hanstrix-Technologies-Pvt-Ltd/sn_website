@@ -25,6 +25,8 @@ import {
   getSubtitleStyles,
   getEmailInputStyles,
   getPrimaryButtonStyles,
+  getLinkStyles,
+  getIconStyles,
 } from "./constant";
 
 interface ForgotPasswordFormProps {
@@ -76,15 +78,7 @@ export default function ForgotPasswordForm({
         <Button
           onClick={onBack}
           startIcon={<ArrowBack />}
-          sx={{
-            color: "#115293",
-            textTransform: "none",
-            fontSize: "0.9rem",
-            fontWeight: 500,
-            "&:hover": {
-              backgroundColor: "rgba(17, 82, 147, 0.08)",
-            },
-          }}
+          sx={getLinkStyles()} // Use dark mode-aware link styling
         >
           <FormattedMessage
             id="forgot.password.back"
@@ -123,9 +117,9 @@ export default function ForgotPasswordForm({
                 severity="info"
                 sx={{
                   mb: 2,
-                  backgroundColor: "#0288d1",
+                  backgroundColor: "#2563eb", // Updated to match dashboard blue
                   color: "#FFFFFF",
-                  border: "1px solid rgba(17,82,147,0.16)",
+                  border: "1px solid rgba(37, 99, 235, 0.2)", // Updated border color
                   borderRadius: 2,
                   alignItems: "center",
                   "& .MuiAlert-icon": { color: "#f44336" },
@@ -189,9 +183,9 @@ export default function ForgotPasswordForm({
                 severity="info"
                 sx={{
                   mb: 2,
-                  backgroundColor: "#0288d1",
+                  backgroundColor: "#2563eb", // Updated to match dashboard blue
                   color: "#FFFFFF",
-                  border: "2px solid rgba(17,82,147,0.12)",
+                  border: "2px solid rgba(37, 99, 235, 0.2)", // Updated border color
                 }}
               >
                 {errorMessage}
@@ -229,7 +223,7 @@ export default function ForgotPasswordForm({
                     <IconButton
                       onClick={() => setShowPassword(!showPassword)}
                       edge="end"
-                      sx={{ color: "#115293" }}
+                      sx={getIconStyles()} // Dark mode-aware icon styling
                     >
                       {showPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>
@@ -258,7 +252,7 @@ export default function ForgotPasswordForm({
                         setShowConfirmPassword(!showConfirmPassword)
                       }
                       edge="end"
-                      sx={{ color: "#115293" }}
+                      sx={getIconStyles()} // Dark mode-aware icon styling
                     >
                       {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                     </IconButton>

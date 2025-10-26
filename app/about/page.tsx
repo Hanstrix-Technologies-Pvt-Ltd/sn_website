@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 import { ArrowRight, TrendingUp, Users, Award, Target } from "lucide-react";
 import Link from "next/link";
 
@@ -275,6 +276,9 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

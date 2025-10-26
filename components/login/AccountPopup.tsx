@@ -374,10 +374,8 @@ export default function AccountPopup({
               message: "Account created successfully! Welcome!",
               variant: "alert",
               alert: {
-                // ✅ CHANGE THIS LINE
-                color: "info", // This will use the MUI 'info' color (typically blue)
-                // OR use 'primary' if you want your main theme color
-                // color: "primary", 
+                color: "success", // Changed to success to match button colors
+                variant: "filled", // Ensure filled variant for proper styling
               },
               close: true,
               autoHideDuration: 15000, // 15 seconds
@@ -475,7 +473,8 @@ export default function AccountPopup({
             message: "Password reset successfully!",
             variant: "alert",
             alert: {
-              color: "info",
+              color: "success", // Changed to success to match button colors
+              variant: "filled", // Ensure filled variant for proper styling
             },
             close: true,
           })
@@ -504,7 +503,8 @@ export default function AccountPopup({
           message: "Logged out successfully",
           variant: "alert",
           alert: {
-            color: "info",
+            color: "success", // Changed to success to match button colors
+            variant: "filled", // Ensure filled variant for proper styling
           },
           close: true,
         })
@@ -633,14 +633,25 @@ export default function AccountPopup({
                       <Box
                         sx={{ display: "flex", alignItems: "center", gap: 2 }}
                       >
-                        <IconUser
-                          size={20}
-                          color={theme.palette.primary.main}
-                        />
+                        <Box
+                          sx={{
+                            color: "#2563eb", // Blue in light mode
+                            ".dark &": {
+                              color: "#ffffff !important", // White in dark mode
+                            },
+                          }}
+                        >
+                          <IconUser size={20} />
+                        </Box>
                         <Typography
                           variant="body1"
-                          color="text.primary"
-                          fontWeight={600}
+                          sx={{
+                            color: "#2563eb", // Blue in light mode
+                            fontWeight: 600,
+                            ".dark &": {
+                              color: "#ffffff !important", // White in dark mode
+                            },
+                          }}
                         >
                           {clerkUser.unsafeMetadata?.firstName as string || `${clerkUser.firstName || ''} ${clerkUser.lastName || ''}`.trim()}
                         </Typography>
@@ -650,8 +661,13 @@ export default function AccountPopup({
                     {clerkUser.emailAddresses[0]?.emailAddress && (
                       <Typography
                         variant="body2"
-                        color="text.secondary"
-                        sx={{ ml: 5 }}
+                        sx={{
+                          ml: 5,
+                          color: "#2563eb", // Blue in light mode
+                          ".dark &": {
+                            color: "#ffffff !important", // White in dark mode
+                          },
+                        }}
                       >
                         {clerkUser.emailAddresses[0].emailAddress}
                       </Typography>
@@ -659,8 +675,13 @@ export default function AccountPopup({
                     {clerkUser.phoneNumbers[0]?.phoneNumber && (
                       <Typography
                         variant="body2"
-                        color="text.secondary"
-                        sx={{ ml: 5 }}
+                        sx={{
+                          ml: 5,
+                          color: "#2563eb", // Blue in light mode
+                          ".dark &": {
+                            color: "#ffffff !important", // White in dark mode
+                          },
+                        }}
                       >
                         Contact: {clerkUser.phoneNumbers[0].phoneNumber}
                       </Typography>
@@ -683,6 +704,21 @@ export default function AccountPopup({
                     "&:hover": {
                       borderColor: theme.palette.error.dark,
                       backgroundColor: "rgba(211, 47, 47, 0.04)",
+                    },
+                    // Dark mode styling
+                    ".dark &": {
+                      borderColor: "#ffffff !important", // White border in dark mode
+                      color: "#ffffff !important", // White text in dark mode
+                      "&:hover": {
+                        borderColor: "#ffffff !important", // White border on hover in dark mode
+                        backgroundColor: "rgba(255, 255, 255, 0.1) !important", // Light background on hover in dark mode
+                      },
+                    },
+                    // Icon styling for dark mode
+                    "& .MuiButton-startIcon": {
+                      ".dark &": {
+                        color: "#ffffff !important", // White icon in dark mode
+                      },
                     },
                   }}
                 >

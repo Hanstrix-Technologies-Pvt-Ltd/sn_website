@@ -14,7 +14,9 @@ import {
   Cpu,
   Database,
   Globe,
+  Instagram,
   Lightbulb,
+  Linkedin,
   Menu,
   Moon,
   Rocket,
@@ -32,6 +34,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -222,40 +225,14 @@ function HeroSection() {
               </Badge>
             </div> */}
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent animate-pulse text-left">
+            <h1 className="hero-text text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight text-left">
               <span className="font-serif tracking-tight block">
-                <motion.span
-                  className="block"
-                  whileHover={{
-                    scale: 1.05,
-                    textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-                  }}
-                  animate={{
-                    opacity:
-                      glitchText !== "YOUR STOCK MARKET NAVIGATOR"
-                        ? [1, 0.8, 1]
-                        : 1,
-                  }}
-                  transition={{ duration: 0.1 }}
-                >
+                <span className="block text-blue-500 hover:text-indigo-500 transition-colors duration-300">
                   YOUR
-                </motion.span>
-                <motion.span
-                  className="block"
-                  whileHover={{
-                    scale: 1.05,
-                    textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-                  }}
-                  animate={{
-                    opacity:
-                      glitchText !== "YOUR STOCK MARKET NAVIGATOR"
-                        ? [1, 0.8, 1]
-                        : 1,
-                  }}
-                  transition={{ duration: 0.1 }}
-                >
+                </span>
+                <span className="block text-blue-500 hover:text-indigo-500 transition-colors duration-300">
                   STOCK MARKET NAVIGATOR
-                </motion.span>
+                </span>
               </span>
             </h1>
 
@@ -1167,204 +1144,5 @@ function TestimonialsSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  const footerSections = [
-    {
-      title: "Trading Services",
-      links: [
-        { name: "Risk Management", href: "/risk-management" },
-        { name: "Trading Strategies", href: "/trading-strategies" },
-        { name: "Market Analysis", href: "/market-analysis" },
-        { name: "Community Access", href: "/community" },
-      ],
-    },
-    // {
-    //   title: "Company",
-    //   links: [
-    //     { name: "About Stock Navii", href: "/about" },
-    //     { name: "Success Stories", href: "/success-stories" },
-    //     { name: "Trading Blog", href: "/blog" },
-    //     { name: "Contact", href: "/contact" },
-    //   ],
-    // },
-    // {
-    //   title: "Resources",
-    //   links: [
-    //     { name: "Trading Education", href: "/education" },
-    //     { name: "Market Research", href: "/research" },
-    //     { name: "24/7 Support", href: "/support" },
-    //     { name: "Privacy Policy", href: "/privacy" },
-    //   ],
-    // },
-  ];
-
-  const socialLinks = [
-    { name: "Twitter", gradient: "from-blue-400 to-blue-600" },
-    { name: "LinkedIn", gradient: "from-blue-500 to-blue-700" },
-    { name: "Telegram", gradient: "from-blue-600 to-blue-800" },
-    { name: "Discord", gradient: "from-blue-500 to-blue-600" },
-  ];
-
-  return (
-    <footer className="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950/50 to-blue-950/50" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
-
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-5 gap-12 mb-16">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 bg-blue-400 bg-clip-text text-transparent font-serif">
-                Stock Navii
-              </h3>
-              <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
-                Your Stock Market Navigator. Unlocking Your Path to Financial
-                Independence through proven trading strategies and expert market
-                guidance.
-              </p>
-
-              {/* Social Links */}
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <motion.div
-                    key={social.name}
-                    className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${social.gradient} flex items-center justify-center cursor-pointer group`}
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-6 h-6 bg-white rounded-full group-hover:scale-110 transition-transform duration-300" />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Footer Links */}
-          {footerSections.map((section, sectionIndex) => (
-            <div key={section.title}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: sectionIndex * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h4 className="text-xl font-semibold mb-6 text-white font-serif">
-                  {section.title}
-                </h4>
-                <ul className="space-y-4">
-                  {section.links.map((link, linkIndex) => (
-                    <motion.li
-                      key={link.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: sectionIndex * 0.1 + linkIndex * 0.05,
-                      }}
-                      viewport={{ once: true }}
-                    >
-                      <p className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block group">
-                        <span className="relative">
-                          {link.name}
-                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300" />
-                        </span>
-                      </p>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          ))}
-        </div>
-
-        {/* Contact Info */}
-        <motion.div
-          className="grid md:grid-cols-3 gap-8 mb-16 p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center md:text-left">
-            <h5 className="font-semibold mb-2 text-blue-400">Address</h5>
-            <p className="text-gray-300">
-              Raja Rajeshwari Nagar
-              <br />
-              Bengaluru - 560068
-              <br />
-              Karnataka, India
-            </p>
-          </div>
-          <div className="text-center md:text-left">
-            <h5 className="font-semibold mb-2 text-blue-400">Contact</h5>
-            <p className="text-gray-300">
-              Phone: +91 97014 61661
-              <br />
-              Email: info@stocknavii.com
-              <br />
-              Support: WhatsApp Available
-            </p>
-          </div>
-          {/* <div className="text-center md:text-left">
-            <h5 className="font-semibold mb-2 text-blue-400">Trading Hours</h5>
-            <p className="text-gray-300">
-              Mon - Fri: 9:15 AM - 3:30 PM IST
-              <br />
-              Pre-Market: 9:00 AM - 9:15 AM
-              <br />
-              Post-Market: 3:30 PM - 4:00 PM
-            </p>
-          </div> */}
-        </motion.div>
-
-        {/* Bottom Bar */}
-        <motion.div
-          className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-gray-400 mb-4 md:mb-0">
-            &copy; 2025 . All Rights Reserved By Stock Navii. Designed By Team
-            Behive.In
-          </p>
-          <div className="flex space-x-6 text-sm">
-            <Link
-              href="/privacy"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Cookie Policy
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-    </footer>
   );
 }
