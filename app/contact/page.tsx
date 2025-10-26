@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,8 +10,87 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    subject: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate form
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/sendMail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "We'll get back to you soon.",
+        });
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        throw new Error(data.error || "Failed to send message");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description:
+          error.message || "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950/30">
       {/* Navigation */}
@@ -53,7 +133,7 @@ export default function ContactPage() {
                   <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-900 dark:text-white">
                     Send us a Message
                   </h2>
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                       <div>
                         <Label
@@ -64,8 +144,11 @@ export default function ContactPage() {
                         </Label>
                         <Input
                           id="name"
+                          value={formData.name}
+                          onChange={handleChange}
                           placeholder="Your full name"
                           className="mt-2"
+                          required
                         />
                       </div>
                       <div>
@@ -78,8 +161,11 @@ export default function ContactPage() {
                         <Input
                           id="email"
                           type="email"
+                          value={formData.email}
+                          onChange={handleChange}
                           placeholder="your@email.com"
                           className="mt-2"
+                          required
                         />
                       </div>
                     </div>
@@ -92,6 +178,8 @@ export default function ContactPage() {
                       </Label>
                       <Input
                         id="company"
+                        value={formData.company}
+                        onChange={handleChange}
                         placeholder="Your company name"
                         className="mt-2"
                       />
@@ -105,8 +193,11 @@ export default function ContactPage() {
                       </Label>
                       <Input
                         id="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
                         placeholder="What's this about?"
                         className="mt-2"
+                        required
                       />
                     </div>
                     <div>
@@ -118,16 +209,30 @@ export default function ContactPage() {
                       </Label>
                       <Textarea
                         id="message"
+                        value={formData.message}
+                        onChange={handleChange}
                         placeholder="Tell us about your project..."
                         className="mt-2 min-h-[120px]"
+                        required
                       />
                     </div>
                     <Button
+                      type="submit"
                       size="lg"
                       className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-base sm:text-lg"
+                      disabled={isLoading}
                     >
-                      Send Message
-                      <Send className="ml-2 h-5 w-5" />
+                      {isLoading ? (
+                        <>
+                          Sending...
+                          <Loader2 className="ml-2 h-5 w-5 animate-spin" />
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="ml-2 h-5 w-5" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
@@ -260,19 +365,29 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Monday - Friday
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">9:00 AM - 6:00 PM</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    9:00 AM - 6:00 PM
+                  </p>
                 </CardContent>
               </Card>
               <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Saturday</h3>
-                  <p className="text-gray-600 dark:text-gray-300">10:00 AM - 4:00 PM</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Saturday
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    10:00 AM - 4:00 PM
+                  </p>
                 </CardContent>
               </Card>
               <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
                 <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Sunday</h3>
-                  <p className="text-gray-600 dark:text-gray-300">By Appointment</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Sunday
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    By Appointment
+                  </p>
                 </CardContent>
               </Card>
               <Card className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/50 dark:to-blue-900/50 border-0">
@@ -280,7 +395,9 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Emergency
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">WhatsApp Support</p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    WhatsApp Support
+                  </p>
                 </CardContent>
               </Card>
             </div>

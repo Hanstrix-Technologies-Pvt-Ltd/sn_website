@@ -8,6 +8,7 @@ import { store } from "@/components/store";
 import { UserProvider } from "@/components/login/userContext";
 import { IntlProvider } from "react-intl";
 import CustomSnackbar from "@/components/ui/snackbar";
+import { Toaster } from "@/components/ui/toaster";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
@@ -23,6 +24,7 @@ export default function Providers({ children }: { children: ReactNode }) {
             >
               {children}
               <CustomSnackbar />
+              <Toaster />
             </ThemeProvider>
           </IntlProvider>
         </UserProvider>
@@ -30,5 +32,3 @@ export default function Providers({ children }: { children: ReactNode }) {
     </ClerkProvider>
   );
 }
-
-
