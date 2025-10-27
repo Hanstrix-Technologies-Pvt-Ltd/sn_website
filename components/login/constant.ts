@@ -501,6 +501,7 @@ export const getIconStyles = () => ({
 export const getLinkStyles = () => ({
   color: POPUP_COLORS.textPrimary, // Blue in light mode
   textDecoration: "none",
+  textTransform: "none" as const,
   "&:hover": {
     textDecoration: "underline",
   },
