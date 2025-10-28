@@ -25,6 +25,10 @@ import {
   getSubtitleStyles,
   getEmailInputStyles,
   getPrimaryButtonStyles,
+  getIconStyles,
+  getLinkStyles,
+  getErrorStyles,
+  getTextStyles,
 } from "./constant";
 
 interface SignInFormProps {
@@ -103,12 +107,18 @@ export default function SignInForm({
               severity="info"
               sx={{
                 mb: 2,
-                backgroundColor: "#0288d1",
+                backgroundColor: "#2563eb", // Updated to match dashboard blue
                 color: "#FFFFFF",
-                border: "1px solid rgba(17,82,147,0.16)",
+                border: "1px solid rgba(37, 99, 235, 0.2)", // Updated border color
                 borderRadius: 1,
                 alignItems: "center",
                 "& .MuiAlert-icon": { color: "#f44336" },
+                // Dark mode: make text white
+                ".dark &": {
+                  backgroundColor: "#2563eb !important",
+                  color: "#ffffff !important",
+                  "& .MuiAlert-icon": { color: "#ffffff !important" },
+                },
               }}
             >
               {errorMessage}
@@ -199,7 +209,7 @@ export default function SignInForm({
                     onClick={() => setShowPassword(!showPassword)}
                     onMouseDown={(e) => e.preventDefault()} // Prevent focus loss
                     edge="end"
-                    sx={{ color: "#115293" }}
+                    sx={getIconStyles()} // Use new icon styles for dark mode
                     tabIndex={-1} // Prevent tab focus on icon button
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -232,15 +242,7 @@ export default function SignInForm({
             <Button
               onClick={onForgotPassword}
               tabIndex={isLoading ? -1 : 0}
-              sx={{
-                color: "#115293",
-                textTransform: "none",
-                fontSize: "0.9rem",
-                fontWeight: 500,
-                "&:hover": {
-                  backgroundColor: "rgba(17, 82, 147, 0.08)",
-                },
-              }}
+              sx={getLinkStyles()} // Use new link styles for dark mode
             >
               <FormattedMessage
                 id="signin.forgot.password"
@@ -276,7 +278,7 @@ export default function SignInForm({
 
           {/* Switch to Sign Up */}
           <Box sx={{ textAlign: "center", mt: 2 }}>
-            <Typography variant="body2" sx={{ color: "#115293" }}>
+            <Typography variant="body2" sx={getTextStyles()}> {/* Use new text styles for dark mode */}
               <FormattedMessage
                 id="signin.no.account"
                 defaultMessage="Don't have an account?"
@@ -284,17 +286,7 @@ export default function SignInForm({
               <Button
                 onClick={onSwitchToSignUp}
                 tabIndex={isLoading ? -1 : 0}
-                sx={{
-                  color: "#115293",
-                  textTransform: "none",
-                  fontWeight: 600,
-                  p: 0,
-                  minWidth: "auto",
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                    textDecoration: "underline",
-                  },
-                }}
+                sx={getLinkStyles()} // Use new link styles for dark mode
               >
                 <FormattedMessage
                   id="signin.signup.link"

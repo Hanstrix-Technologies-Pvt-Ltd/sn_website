@@ -18,32 +18,32 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Hanstrix Technologies - Digital Transformation Agency",
-  description: "Leading digital transformation solutions for modern businesses. Specializing in web development, AI/ML, digital marketing, and custom ERP solutions with cutting-edge technology and innovative approaches.",
-  keywords: "digital transformation, web development, AI, machine learning, ERP solutions, digital marketing, Next.js, React, modern web design",
-  authors: [{ name: "Hanstrix Technologies" }],
-  creator: "Hanstrix Technologies",
-  publisher: "Hanstrix Technologies",
+  title: "Stock Navii - Navigate your Financial Future",
+  description: "Your Stock Market Navigator. Unlocking Your Path to Financial Independence through proven trading strategies and expert market guidance.",
+  keywords: "stock market, financial independence, trading strategies, expert market guidance, stock market navigator",
+  authors: [{ name: "Stock Navii" }],
+  creator: "Stock Navii",
+  publisher: "Stock Navii",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://hanstrix.com'),
+  metadataBase: new URL('https://stocknavii.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Hanstrix Technologies - Digital Transformation Agency",
-    description: "Leading digital transformation solutions for modern businesses with cutting-edge technology and innovative approaches.",
-    url: "https://hanstrix.com",
-    siteName: "Hanstrix Technologies",
+    title: "Stock Navii - Navigate your Financial Future",
+    description: "Your Stock Market Navigator. Unlocking Your Path to Financial Independence through proven trading strategies and expert market guidance.",
+    url: "https://stocknavii.com",
+    siteName: "Stock Navii",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Hanstrix Technologies - Digital Transformation Agency"
+        alt: "Stock Navii - Navigate your Financial Future"
       }
     ],
     locale: "en_US",
@@ -51,10 +51,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hanstrix Technologies - Digital Transformation Agency",
-    description: "Leading digital transformation solutions for modern businesses with cutting-edge technology and innovative approaches.",
+    title: "Stock Navii - Navigate your Financial Future",
+    description: "Your Stock Market Navigator. Unlocking Your Path to Financial Independence through proven trading strategies and expert market guidance.",
     images: ["/og-image.jpg"],
-    creator: "@hanstrix"
+    creator: "@stocknavii"
   },
   robots: {
     index: true,

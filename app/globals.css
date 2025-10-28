@@ -305,3 +305,135 @@ html {
     background: rgba(0, 0, 0, 0.9);
   }
 }
+
+/* Hero text - ensure no blur effects */
+.hero-text {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  filter: none;
+  backdrop-filter: none;
+}
+
+/* Material-UI Dark Mode Overrides - Force white placeholders and text */
+.dark .MuiTextField-root.Mui-disabled .MuiInputBase-input::placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiTextField-root.Mui-disabled .MuiInputBase-input::-webkit-input-placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiTextField-root.Mui-disabled .MuiInputBase-input::-moz-placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiTextField-root.Mui-disabled .MuiInputBase-input:-ms-input-placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiTextField-root.Mui-disabled .MuiInputBase-input {
+  color: #ffffff !important;
+  background-color: #0f172a !important;
+}
+
+/* Additional specificity for Material-UI disabled inputs */
+.dark .MuiOutlinedInput-root.Mui-disabled .MuiInputBase-input::placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiOutlinedInput-root.Mui-disabled .MuiInputBase-input::-webkit-input-placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiOutlinedInput-root.Mui-disabled .MuiInputBase-input::-moz-placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiOutlinedInput-root.Mui-disabled .MuiInputBase-input:-ms-input-placeholder {
+  color: #ffffff !important;
+  opacity: 0.7 !important;
+}
+
+.dark .MuiOutlinedInput-root.Mui-disabled .MuiInputBase-input {
+  color: #ffffff !important;
+  background-color: #0f172a !important;
+}
+
+/* Additional overrides for input text color specifically */
+.dark .MuiTextField-root.Mui-disabled input {
+  color: #ffffff !important;
+}
+
+.dark .MuiOutlinedInput-root.Mui-disabled input {
+  color: #ffffff !important;
+}
+
+.dark .MuiInputBase-input.Mui-disabled {
+  color: #ffffff !important;
+}
+
+.dark .MuiInputBase-root.Mui-disabled .MuiInputBase-input {
+  color: #ffffff !important;
+}
+
+/* Close icon (X) dark mode overrides */
+.dark .MuiIconButton-root {
+  color: #ffffff !important;
+}
+
+.dark .MuiIconButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Additional specificity for close buttons */
+.dark .MuiDialog-root .MuiIconButton-root {
+  color: #ffffff !important;
+}
+
+.dark .MuiDialog-root .MuiIconButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Icon styling for dark mode - Tabler icons */
+.dark svg[data-icon-name="user"] {
+  color: #ffffff !important;
+}
+
+.dark .tabler-icon {
+  color: #ffffff !important;
+}
+
+/* Additional specificity for user icons in dark mode */
+.dark [data-icon-name="user"] {
+  color: #ffffff !important;
+}
+
+.dark [data-icon-name="logout"] {
+  color: #ffffff !important;
+}
+
+/* Force Tabler icons to be white in dark mode */
+.dark svg {
+  color: #ffffff !important;
+}
+
+/* Specific targeting for Tabler icons in dark mode */
+.dark .tabler-icon svg {
+  color: #ffffff !important;
+}
+
+/* Target all SVG elements in dark mode within the popup */
+.dark .MuiDialog-root svg {
+  color: #ffffff !important;
+}

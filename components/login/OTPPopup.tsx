@@ -21,6 +21,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import { FormattedMessage } from "react-intl";
+import Image from "next/image";
 // import Logo from "ui-component/Logo";
 // import UserDetailsPopup from "./UserDetailsPopup";
 import {
@@ -271,10 +272,14 @@ export default function OTPPopup({
           {/* Header */}
           <Box sx={getHeaderStyles()}>
             {/* Logo */}
-            <Box sx={{ display: "flex", alignItems: "center" }}>
-              {/* <Box sx={getLogoStyles()}>
-                <Logo />
-              </Box> */}
+            <Box sx={getLogoStyles()}>
+              <Image
+                src="/logo.png"
+                alt="Stock Navii Logo"
+                width={50}
+                height={50}
+                priority
+              />
             </Box>
 
             {/* Close Button - Positioned absolutely */}
@@ -306,10 +311,13 @@ export default function OTPPopup({
                 variant="body1"
                 sx={{
                   textAlign: "center",
-                  color: "#115293",
+                  color: "#115293", // Original blue
                   fontSize: "0.9rem",
                   lineHeight: 1.4,
                   mr: 1,
+                  ".dark &": {
+                    color: "#ffffff !important", // White text in dark mode
+                  },
                 }}
               >
                 <FormattedMessage
@@ -428,9 +436,12 @@ export default function OTPPopup({
                     <Typography
                       variant="body2"
                       sx={{
-                        color: "#115293",
+                        color: "#115293", // Original blue
                         fontSize: "0.85rem",
                         fontWeight: 400,
+                        ".dark &": {
+                          color: "#ffffff !important", // White text in dark mode
+                        },
                       }}
                     >
                       Resend OTP in {timeLeft}s
@@ -452,29 +463,7 @@ export default function OTPPopup({
                   variant="contained"
                   size="large"
                   disabled={isButtonDisabled}
-                  sx={{
-                    py: { xs: 0.75, md: 1 },
-                    px: { xs: 2, md: 3 },
-                    borderRadius: '8px',
-                    fontSize: { xs: '0.8rem', md: '0.9rem' },
-                    minWidth: { xs: 'auto', sm: '160px' },
-                    flex: { xs: 1, sm: 'none' },
-                    backgroundColor: !isButtonDisabled
-                    ? "#115293 !important"
-                    : "#ccc !important",
-                    color: !isButtonDisabled
-                      ? '#fff !important'
-                      : '#666 !important',
-                    '&:hover': {
-                      backgroundColor: !isButtonDisabled
-                        ? "#0d3d6b !important"
-                        : "#ccc !important",
-                    },
-                    '&:disabled': {
-                      backgroundColor: '#ccc !important',
-                      color: '#666 !important'
-                    },
-                  }}
+                  sx={getPrimaryButtonStyles(theme)}
                 >
                   {isSubmitting || isLoading ? (
                     "Verifying..."

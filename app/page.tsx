@@ -14,7 +14,9 @@ import {
   Cpu,
   Database,
   Globe,
+  Instagram,
   Lightbulb,
+  Linkedin,
   Menu,
   Moon,
   Rocket,
@@ -32,6 +34,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -204,7 +207,7 @@ function HeroSection() {
         />
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Column - Text Content */}
           <motion.div
@@ -222,40 +225,14 @@ function HeroSection() {
               </Badge>
             </div> */}
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent animate-pulse text-left">
+            <h1 className="hero-text text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight text-left">
               <span className="font-serif tracking-tight block">
-                <motion.span
-                  className="block"
-                  whileHover={{
-                    scale: 1.05,
-                    textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-                  }}
-                  animate={{
-                    opacity:
-                      glitchText !== "YOUR STOCK MARKET NAVIGATOR"
-                        ? [1, 0.8, 1]
-                        : 1,
-                  }}
-                  transition={{ duration: 0.1 }}
-                >
+                <span className="block text-blue-500 hover:text-indigo-500 transition-colors duration-300">
                   YOUR
-                </motion.span>
-                <motion.span
-                  className="block"
-                  whileHover={{
-                    scale: 1.05,
-                    textShadow: "0 0 20px rgba(147, 51, 234, 0.5)",
-                  }}
-                  animate={{
-                    opacity:
-                      glitchText !== "YOUR STOCK MARKET NAVIGATOR"
-                        ? [1, 0.8, 1]
-                        : 1,
-                  }}
-                  transition={{ duration: 0.1 }}
-                >
+                </span>
+                <span className="block text-blue-500 hover:text-indigo-500 transition-colors duration-300">
                   STOCK MARKET NAVIGATOR
-                </motion.span>
+                </span>
               </span>
             </h1>
 
@@ -277,10 +254,13 @@ function HeroSection() {
                   size="lg"
                   className="group relative px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 rounded-2xl overflow-hidden"
                 >
-                  <span className="relative z-10 flex items-center">
+                  <a
+                    href="/contact"
+                    className="relative z-10 flex items-center"
+                  >
                     Join The Stock Navii Community
                     <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
+                  </a>
                   <div className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Button>
               </motion.div>
@@ -397,13 +377,16 @@ function AboutSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} className="py-32 px-6 relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="pt-4 md:py-32 px-6 relative overflow-hidden"
+    >
       {/* Liquid Glass Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-blue-50/30 to-blue-50/50 dark:from-slate-900/50 dark:via-blue-950/30 dark:to-blue-950/50 backdrop-blur-3xl" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="md:container mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-16 items-center">
           <motion.div
             style={{ opacity }}
             initial={{ opacity: 0, x: -100 }}
@@ -451,7 +434,7 @@ function AboutSection() {
             </div>
 
             <motion.div
-              className="flex flex-wrap gap-4 mt-10"
+              className="flex flex-wrap gap-4 mt-16 md:mt-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -491,18 +474,14 @@ function AboutSection() {
           >
             {/* Liquid Glass Card */}
             <motion.div
-              className="relative group cursor-pointer"
-              whileHover={{
-                rotateY: 8,
-                rotateX: 8,
-                scale: 1.02,
-              }}
+              className="relative group cursor-pointer mt-12"
+              whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               style={{ transformStyle: "preserve-3d" }}
             >
               <div className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
 
-              <div className="relative bg-white/10 dark:bg-slate-800/10 backdrop-blur-2xl rounded-3xl p-10 border border-white/20 dark:border-slate-700/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+              <div className="relative bg-white/10 dark:bg-slate-800/10 backdrop-blur-2xl rounded-3xl p-5 md:p-10 border border-white/20 dark:border-slate-700/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                 {/* Refractive Light Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-indigo-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -608,13 +587,13 @@ function ServicesBentoGrid() {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section className="pt-16 md:py-32 px-6 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -638,7 +617,7 @@ function ServicesBentoGrid() {
           </p>
         </motion.div>
 
-        <div className="space-y-32 max-w-7xl mx-auto">
+        <div className="space-y-12 md:space-y-32 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
 
@@ -647,7 +626,7 @@ function ServicesBentoGrid() {
                 key={service.title}
                 className={`flex flex-col ${
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center gap-16 lg:gap-20`}
+                } items-center gap-4 md:gap-16 lg:gap-20`}
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
@@ -851,13 +830,13 @@ function WhyChooseUsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/50 dark:from-blue-950/20 dark:via-slate-900 dark:to-blue-950/20 relative overflow-hidden">
+    <section className="md:py-32 px-6 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/50 dark:from-blue-950/20 dark:via-slate-900 dark:to-blue-950/20 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_20%_50%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10 py-12">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -881,17 +860,13 @@ function WhyChooseUsSection() {
           </p>
         </motion.div>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory"
-          style={{ scrollBehavior: "smooth" }}
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="flex-shrink-0 w-96 snap-center"
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="w-full"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.8,
                 delay: index * 0.1,
@@ -966,7 +941,7 @@ function ClientLogosSection() {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.05),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.1),transparent_70%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -993,7 +968,7 @@ function ClientLogosSection() {
 
         <div className="relative">
           <motion.div
-            className="flex gap-16 items-center justify-center"
+            className="flex gap-4 md:gap-16 items-center justify-center"
             animate={{ x: [0, -1200] }}
             transition={{
               duration: 30,
@@ -1063,11 +1038,11 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-blue-50/80 dark:from-slate-950/80 dark:via-blue-950/30 dark:to-blue-950/80 relative overflow-hidden">
+    <section className="md:py-32 px-6 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-blue-50/80 dark:from-slate-950/80 dark:via-blue-950/30 dark:to-blue-950/80 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10 my-12">
         <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}
@@ -1167,204 +1142,5 @@ function TestimonialsSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  const footerSections = [
-    {
-      title: "Trading Services",
-      links: [
-        { name: "Risk Management", href: "/risk-management" },
-        { name: "Trading Strategies", href: "/trading-strategies" },
-        { name: "Market Analysis", href: "/market-analysis" },
-        { name: "Community Access", href: "/community" },
-      ],
-    },
-    // {
-    //   title: "Company",
-    //   links: [
-    //     { name: "About Stock Navii", href: "/about" },
-    //     { name: "Success Stories", href: "/success-stories" },
-    //     { name: "Trading Blog", href: "/blog" },
-    //     { name: "Contact", href: "/contact" },
-    //   ],
-    // },
-    // {
-    //   title: "Resources",
-    //   links: [
-    //     { name: "Trading Education", href: "/education" },
-    //     { name: "Market Research", href: "/research" },
-    //     { name: "24/7 Support", href: "/support" },
-    //     { name: "Privacy Policy", href: "/privacy" },
-    //   ],
-    // },
-  ];
-
-  const socialLinks = [
-    { name: "Twitter", gradient: "from-blue-400 to-blue-600" },
-    { name: "LinkedIn", gradient: "from-blue-500 to-blue-700" },
-    { name: "Telegram", gradient: "from-blue-600 to-blue-800" },
-    { name: "Discord", gradient: "from-blue-500 to-blue-600" },
-  ];
-
-  return (
-    <footer className="bg-slate-900 text-white py-20 px-6 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950/50 to-blue-950/50" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
-
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-5 gap-12 mb-16">
-          {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 bg-blue-400 bg-clip-text text-transparent font-serif">
-                Stock Navii
-              </h3>
-              <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
-                Your Stock Market Navigator. Unlocking Your Path to Financial
-                Independence through proven trading strategies and expert market
-                guidance.
-              </p>
-
-              {/* Social Links */}
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <motion.div
-                    key={social.name}
-                    className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${social.gradient} flex items-center justify-center cursor-pointer group`}
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="w-6 h-6 bg-white rounded-full group-hover:scale-110 transition-transform duration-300" />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Footer Links */}
-          {footerSections.map((section, sectionIndex) => (
-            <div key={section.title}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: sectionIndex * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h4 className="text-xl font-semibold mb-6 text-white font-serif">
-                  {section.title}
-                </h4>
-                <ul className="space-y-4">
-                  {section.links.map((link, linkIndex) => (
-                    <motion.li
-                      key={link.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: sectionIndex * 0.1 + linkIndex * 0.05,
-                      }}
-                      viewport={{ once: true }}
-                    >
-                      <p className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block group">
-                        <span className="relative">
-                          {link.name}
-                          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300" />
-                        </span>
-                      </p>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          ))}
-        </div>
-
-        {/* Contact Info */}
-        <motion.div
-          className="grid md:grid-cols-3 gap-8 mb-16 p-8 rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center md:text-left">
-            <h5 className="font-semibold mb-2 text-blue-400">Address</h5>
-            <p className="text-gray-300">
-              Raja Rajeshwari Nagar
-              <br />
-              Bengaluru - 560068
-              <br />
-              Karnataka, India
-            </p>
-          </div>
-          <div className="text-center md:text-left">
-            <h5 className="font-semibold mb-2 text-blue-400">Contact</h5>
-            <p className="text-gray-300">
-              Phone: +91 97014 61661
-              <br />
-              Email: info@stocknavii.com
-              <br />
-              Support: WhatsApp Available
-            </p>
-          </div>
-          {/* <div className="text-center md:text-left">
-            <h5 className="font-semibold mb-2 text-blue-400">Trading Hours</h5>
-            <p className="text-gray-300">
-              Mon - Fri: 9:15 AM - 3:30 PM IST
-              <br />
-              Pre-Market: 9:00 AM - 9:15 AM
-              <br />
-              Post-Market: 3:30 PM - 4:00 PM
-            </p>
-          </div> */}
-        </motion.div>
-
-        {/* Bottom Bar */}
-        <motion.div
-          className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-gray-400 mb-4 md:mb-0">
-            &copy; 2025 . All Rights Reserved By Stock Navii. Designed By Team
-            Behive.In
-          </p>
-          <div className="flex space-x-6 text-sm">
-            <Link
-              href="/privacy"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/cookies"
-              className="text-gray-400 hover:text-white transition-colors duration-300"
-            >
-              Cookie Policy
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-    </footer>
   );
 }
