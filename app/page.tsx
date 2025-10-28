@@ -207,7 +207,7 @@ function HeroSection() {
         />
       </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
           {/* Left Column - Text Content */}
           <motion.div
@@ -254,10 +254,13 @@ function HeroSection() {
                   size="lg"
                   className="group relative px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 rounded-2xl overflow-hidden"
                 >
-                  <span className="relative z-10 flex items-center">
+                  <a
+                    href="/contact"
+                    className="relative z-10 flex items-center"
+                  >
                     Join The Stock Navii Community
                     <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
+                  </a>
                   <div className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Button>
               </motion.div>
@@ -374,13 +377,16 @@ function AboutSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={sectionRef} className="py-32 px-6 relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="pt-4 md:py-32 px-6 relative overflow-hidden"
+    >
       {/* Liquid Glass Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-blue-50/30 to-blue-50/50 dark:from-slate-900/50 dark:via-blue-950/30 dark:to-blue-950/50 backdrop-blur-3xl" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="md:container mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-16 items-center">
           <motion.div
             style={{ opacity }}
             initial={{ opacity: 0, x: -100 }}
@@ -428,7 +434,7 @@ function AboutSection() {
             </div>
 
             <motion.div
-              className="flex flex-wrap gap-4 mt-10"
+              className="flex flex-wrap gap-4 mt-16 md:mt-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -468,18 +474,14 @@ function AboutSection() {
           >
             {/* Liquid Glass Card */}
             <motion.div
-              className="relative group cursor-pointer"
-              whileHover={{
-                rotateY: 8,
-                rotateX: 8,
-                scale: 1.02,
-              }}
+              className="relative group cursor-pointer mt-12"
+              whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               style={{ transformStyle: "preserve-3d" }}
             >
               <div className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
 
-              <div className="relative bg-white/10 dark:bg-slate-800/10 backdrop-blur-2xl rounded-3xl p-10 border border-white/20 dark:border-slate-700/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
+              <div className="relative bg-white/10 dark:bg-slate-800/10 backdrop-blur-2xl rounded-3xl p-5 md:p-10 border border-white/20 dark:border-slate-700/20 shadow-2xl group-hover:shadow-3xl transition-all duration-500">
                 {/* Refractive Light Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-indigo-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -585,13 +587,13 @@ function ServicesBentoGrid() {
   ];
 
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section className="pt-16 md:py-32 px-6 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -615,7 +617,7 @@ function ServicesBentoGrid() {
           </p>
         </motion.div>
 
-        <div className="space-y-32 max-w-7xl mx-auto">
+        <div className="space-y-12 md:space-y-32 max-w-7xl mx-auto">
           {services.map((service, index) => {
             const isEven = index % 2 === 0;
 
@@ -624,7 +626,7 @@ function ServicesBentoGrid() {
                 key={service.title}
                 className={`flex flex-col ${
                   isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center gap-16 lg:gap-20`}
+                } items-center gap-4 md:gap-16 lg:gap-20`}
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
@@ -828,13 +830,13 @@ function WhyChooseUsSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/50 dark:from-blue-950/20 dark:via-slate-900 dark:to-blue-950/20 relative overflow-hidden">
+    <section className="md:py-32 px-6 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/50 dark:from-blue-950/20 dark:via-slate-900 dark:to-blue-950/20 relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_20%_50%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10 py-12">
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -858,17 +860,13 @@ function WhyChooseUsSection() {
           </p>
         </motion.div>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory"
-          style={{ scrollBehavior: "smooth" }}
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="flex-shrink-0 w-96 snap-center"
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="w-full"
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.8,
                 delay: index * 0.1,
@@ -943,7 +941,7 @@ function ClientLogosSection() {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.05),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(147,51,234,0.1),transparent_70%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -970,7 +968,7 @@ function ClientLogosSection() {
 
         <div className="relative">
           <motion.div
-            className="flex gap-16 items-center justify-center"
+            className="flex gap-4 md:gap-16 items-center justify-center"
             animate={{ x: [0, -1200] }}
             transition={{
               duration: 30,
@@ -1040,11 +1038,11 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-blue-50/80 dark:from-slate-950/80 dark:via-blue-950/30 dark:to-blue-950/80 relative overflow-hidden">
+    <section className="md:py-32 px-6 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-blue-50/80 dark:from-slate-950/80 dark:via-blue-950/30 dark:to-blue-950/80 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(147,51,234,0.1),transparent_50%)] dark:bg-[radial-gradient(circle_at_80%_20%,rgba(147,51,234,0.2),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10 my-12">
         <motion.div
           className="text-center mb-20"
           initial={{ opacity: 0, y: 50 }}

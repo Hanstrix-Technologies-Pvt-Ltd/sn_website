@@ -54,9 +54,9 @@ export default function AboutPage() {
       </section>
 
       {/* Main About Content */}
-      <section className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
-        <div className="container mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="pt-6 pb-20 sm:py-32 md:py-20 px-4 sm:px-6 relative overflow-hidden">
+        <div className="md:container mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +90,7 @@ export default function AboutPage() {
               </div>
 
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 sm:mt-10"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4 sm:mt-10"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -98,10 +98,16 @@ export default function AboutPage() {
               >
                 <Button
                   size="lg"
-                  className="group bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg"
+                  className="group relative px-8 py-4 text-base font-semibold bg-blue-600 hover:bg-blue-700 text-white border-0 shadow-2xl hover:shadow-3xl transition-all duration-500 rounded-2xl overflow-hidden"
                 >
-                  Join The Stock Navii Community
-                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <a
+                    href="/contact"
+                    className="relative z-10 flex items-center"
+                  >
+                    Join The Stock Navii Community
+                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </a>
+                  <div className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </Button>
               </motion.div>
             </motion.div>
@@ -114,7 +120,7 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="relative bg-white/10 dark:bg-slate-800/10 backdrop-blur-2xl rounded-3xl p-6 sm:p-10 border border-white/20 dark:border-slate-700/20 shadow-2xl">
-                <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4">
                   <div className="text-center">
                     <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-blue-600 flex items-center justify-center text-white mb-3 sm:mb-4 mx-auto">
                       <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8" />
@@ -171,7 +177,7 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <section className="py-20 sm:py-32 px-4 sm:px-6 bg-gradient-to-br from-blue-50/50 via-white to-blue-50/50 dark:from-blue-950/20 dark:via-slate-900 dark:to-blue-950/20 relative overflow-hidden">
-        <div className="container mx-auto relative z-10">
+        <div className="md:container mx-auto relative z-10">
           <motion.div
             className="text-center mb-12 sm:mb-20"
             initial={{ opacity: 0, y: 50 }}

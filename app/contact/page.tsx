@@ -118,8 +118,8 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 px-4 sm:px-6">
-        <div className="container mx-auto max-w-6xl">
+      <section className="md:py-20 px-4 sm:px-6">
+        <div className="md:container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Form */}
             <motion.div

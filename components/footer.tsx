@@ -51,7 +51,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-slate-900 via-blue-50 dark:via-blue-950/50 to-blue-50 dark:to-blue-950/50" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
 
-      <div className="container mx-auto relative z-10">
+      <div className="md:container mx-auto relative z-10">
         <div className="grid lg:grid-cols-5 gap-12 mb-16">
           {/* Brand Section */}
           <div className="lg:col-span-2">
@@ -184,10 +184,9 @@ export function Footer() {
           viewport={{ once: true }}
         >
           <p className="text-gray-600 dark:text-gray-400 mb-4 md:mb-0">
-            &copy; 2025 . All Rights Reserved By Stock Navii. Designed By Team
-            &nbsp;
+            &copy; 2025 . All Rights Reserved by Stock Navii. Designed by{" "}
             <a href="https://hanstrix.com" target="_blank">
-              hanstrix.com
+              Hanstrix.com
             </a>
           </p>
           <div className="flex space-x-6 text-sm">
